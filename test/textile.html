@@ -96,7 +96,7 @@
 					equals( textile('p(myclass). My classy paragraph.'),'<p class="myclass">My classy paragraph.</p>','Classes and IDs are specified with parentheses.');
 					equals( textile('p(#myid). My ID paragraph.'),'<p id="myid">My ID paragraph.</p>');
 					equals( textile('p{color:red}. Red rum.'),'<p style="color:red;">Red rum.</p>','CSS styles are specified with braces.');
-					equals( textile('p[fr-fr]. En français.'),'<p lang="fr-fr">En français.</p>','Languages are specified with square brackets.');
+					equals( textile('p[fr-fr]. En franï¿½ais.'),'<p lang="fr-fr">En franï¿½ais.</p>','Languages are specified with square brackets.');
 					equals( textile('A *(myclass)classy* phrase.'),'<p>A <strong class="myclass">classy</strong> phrase.</p>','The same syntax may be applied to phrase modifiers');
 					equals( textile('The %{color:blue}blue% room.'),'<p>The <span style="color:blue;">blue</span> room.</p>');
 					equals( textile('p(myclass#myid3){color:green}[de-de]. A complex paragraph.'),'<p style="color:green;" class="myclass" id="myid3" lang="de-de">A complex paragraph.</p>','Block and phrase attributes may be combined.');
@@ -122,6 +122,9 @@
 					equals( textile('<pre>\nA HTML <b>example</b>.\n</pre>'),'<pre>\nA HTML &#60;b&#62;example&#60;/b&#62;.\n</pre>','The contents of explicit pre and code tags are escaped for display.');
 					equals( textile('<code>\nAnother HTML <b>example</b>.\n</code>'),'<p><code>\nAnother HTML &#60;b&#62;example&#60;/b&#62;.\n</code></p>');
 					equals( textile('<notextile>\np. Leave me alone\n</notextile>'),'<p>\np. Leave me alone\n</p>');
+					equals( textile('==\np. Leave me alone\n=='),'<p>\np. Leave me alone\n</p>');
+					equals( textile('$\np. Leave me alone\n$', {escapeSequence: '$'}),'<p>\np. Leave me alone\n</p>');
+					equals( textile('|||\np. Leave me alone\n|||', {escapeSequence: '|||'}),'<p>\np. Leave me alone\n</p>');
 				});
 
 				test("Alignment",function() {

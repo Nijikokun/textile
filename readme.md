@@ -21,6 +21,9 @@ textile(source, { /* options */ });
   - `highlight` **function** `function (code) { return yourHighlighter(code); }`
     - Allows highlighting of code if you wish using your own custom highlighting script.
     - _default_ no highlighting.
+  - `escapeSequence` **string**
+    - Allows to set custom formatting escape sequence - textile formatting will be disabled for a string, contained between two such tokens.
+    - _default_ is `==`
 
 ## History
 
